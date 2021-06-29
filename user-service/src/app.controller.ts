@@ -15,10 +15,7 @@ export class AppController {
   @MessagePattern('create')
   async create(@Payload() data: any): Promise<UserEntity> {
     const { user } = data?.value
-    if (user) {
-      const response = await this.appService.create(user)
-      console.log(response)
-    }
-    return
+    if (user)
+      return this.appService.create(user)
   }
 }
